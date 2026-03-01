@@ -23,5 +23,12 @@ const routes: Route[] = [
   })),
 ];
 
-const router = new Router(outlet);
+// Ensure GitHub Pages sub-path deployments (e.g. '/<repo>/') work.
+// Vite exposes this as import.meta.env.BASE_URL.
+(Router as any).baseUrl = import.meta.env.BASE_URL;
+
+const router = new Router(outlet, {
+  baseUrl: import.meta.env.BASE_URL,
+} as any);
+(router as any).baseUrl = import.meta.env.BASE_URL;
 router.setRoutes(routes);

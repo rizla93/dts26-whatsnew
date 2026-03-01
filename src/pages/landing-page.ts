@@ -58,7 +58,8 @@ class LandingPage extends HTMLElement {
     select?.addEventListener("calciteSelectChange", () => {
       const value = (select as any).value as string;
       if (!value) return;
-      Router.go(value);
+      const baseUrl = (import.meta.env.BASE_URL ?? "/").replace(/\/$/, "");
+      Router.go(`${baseUrl}${value}`);
     });
   }
 }
