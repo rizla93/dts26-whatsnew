@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+</head>
+
+<body>
+    <script>
+        // GitHub Pages SPA fallback:
+        // store the intended URL and redirect to the app root.
+        (function () {
+            var l = window.location;
+            sessionStorage.setItem("spa:redirect", l.pathname + l.search + l.hash);
+
+            // Project pages are served from '/<repo>/' so keep 1 segment.
+            // If deploying as a user/organization site (<user>.github.io), set this to 0.
+            var pathSegmentsToKeep = 1;
+            var segments = l.pathname.split("/").filter(Boolean);
+            var base = "/" + segments.slice(0, pathSegmentsToKeep).join("/") + "/";
+            l.replace(base);
+        })();
+    </script>
+</body>
+
+</html>
