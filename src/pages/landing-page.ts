@@ -11,6 +11,8 @@ class LandingPage extends HTMLElement {
   connectedCallback(): void {
     const root = this.attachShadow({ mode: "open" });
 
+    const baseUrl = import.meta.env.BASE_URL ?? "/";
+
     root.innerHTML = `
       <style>
         :host {
@@ -21,7 +23,7 @@ class LandingPage extends HTMLElement {
         .bg {
           height: 100%;
           width: 100%;
-          background-image: url('/home.png');
+          background-image: url('${baseUrl}home.png');
           background-size: contain;
           background-position: center bottom;
           background-repeat: no-repeat;

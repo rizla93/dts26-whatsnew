@@ -136,7 +136,8 @@ class DemoGlowBuilding extends HTMLElement {
       spatialReference: SpatialReference.WebMercator,
     });
 
-    const buildingMesh = await Mesh.createFromGLTF(origin, "/building.glb");
+    const buildingGlbUrl = `${import.meta.env.BASE_URL ?? "/"}building.glb`;
+    const buildingMesh = await Mesh.createFromGLTF(origin, buildingGlbUrl);
     buildingMesh.scale(0.7);
     buildingMesh.rotate(0, 0, -45);
 
