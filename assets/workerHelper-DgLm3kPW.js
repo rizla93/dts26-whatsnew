@@ -1,1 +1,0 @@
-import{hV as f,hW as t}from"./ShadowCastClear.glsl-Do_wZYQn.js";function n(u,e){return e.push(u.buffer),{buffer:u.buffer,layout:new f(u.layout)}}function o(u){return new t(u.layout).createView(u.buffer)}export{o as t,n as u};

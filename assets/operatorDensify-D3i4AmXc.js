@@ -1,0 +1,1 @@
+import{c5 as c}from"./ShadowCastClear.glsl-DN041Qr8.js";import{o as s}from"./ProjectionTransformation-BPNv-6iS.js";const e=new s;function m(n,r,t,o){return e.execute(n,r,t,o,null)}function p(n,r,t,o){const u=e.executeMany(new c(n),r,t,o,null);return Array.from(u)}function a(){return e.supportsCurves()}export{p as o,m as t,a as u};
