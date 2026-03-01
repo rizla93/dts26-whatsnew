@@ -8,6 +8,19 @@ import { DEMOS } from "../demos/manifest.ts";
 class LandingPage extends HTMLElement {
   static tagName = "landing-page";
 
+  #resizeObserver: ResizeObserver | null = null;
+  #onWindowResize: (() => void) | null = null;
+
+  disconnectedCallback(): void {
+    this.#resizeObserver?.disconnect();
+    this.#resizeObserver = null;
+
+    if (this.#onWindowResize) {
+      window.removeEventListener("resize", this.#onWindowResize);
+      this.#onWindowResize = null;
+    }
+  }
+
   connectedCallback(): void {
     const root = this.attachShadow({ mode: "open" });
 
@@ -27,14 +40,18 @@ class LandingPage extends HTMLElement {
           background-size: contain;
           background-position: center bottom;
           background-repeat: no-repeat;
+          box-sizing: border-box;
 
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          position: relative;
         }
 
         .panel {
-          width: min(520px, calc(100vw - 32px));
+          position: absolute;
+          top: calc(50% + 12px);
+          left: calc(var(--image-left, 0px) + var(--panel-inset, 120px));
+          right: 16px;
+          max-width: 520px;
+          transform: translateY(-50%);
         }
 
         calcite-select {
@@ -56,6 +73,49 @@ class LandingPage extends HTMLElement {
       value: string;
       addEventListener: Function;
     } | null;
+
+    const bgEl = root.querySelector(".bg") as HTMLElement | null;
+    if (bgEl) {
+      let imgW = 0;
+      let imgH = 0;
+
+      const updateVars = () => {
+        if (!imgW || !imgH) return;
+
+        const W = bgEl.clientWidth;
+        const H = bgEl.clientHeight;
+        if (!W || !H) return;
+
+        const r = imgW / imgH;
+        const w = Math.min(W, H * r);
+        const h = w / r;
+        const x = (W - w) / 2;
+        const y = H - h;
+
+        bgEl.style.setProperty("--image-left", `${x}px`);
+        bgEl.style.setProperty("--image-top", `${y}px`);
+        bgEl.style.setProperty("--image-width", `${w}px`);
+        bgEl.style.setProperty("--image-height", `${h}px`);
+
+        // When the image is letterboxed (non-fullscreen / different aspect ratio),
+        // nudge the panel a bit closer to the image edge.
+        bgEl.style.setProperty("--panel-inset", x > 0 ? "100px" : "120px");
+      };
+
+      const img = new Image();
+      img.onload = () => {
+        imgW = img.naturalWidth;
+        imgH = img.naturalHeight;
+        updateVars();
+      };
+      img.src = `${baseUrl}home.png`;
+
+      this.#resizeObserver = new ResizeObserver(updateVars);
+      this.#resizeObserver.observe(bgEl);
+
+      this.#onWindowResize = updateVars;
+      window.addEventListener("resize", updateVars);
+    }
 
     select?.addEventListener("calciteSelectChange", () => {
       const value = (select as any).value as string;
