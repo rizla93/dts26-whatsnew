@@ -1,40 +1,19 @@
-# ArcGIS Maps SDK for JavaScript Vite TypeScript template
+# DTS26 What's New — ArcGIS Maps SDK for JavaScript
 
-📁 **[Click here to download this directory as a ZIP file](https://esri.github.io/jsapi-resources/zips/js-maps-sdk-vite.zip)** 📁
+This repo contains interactive demos used for the **DTS26 “What’s New”** session for the **ArcGIS Maps SDK for JavaScript**.
 
-This template demonstrates how to use the [ArcGIS Maps SDK for JavaScript](https://developers.arcgis.com/javascript/latest/) in a Vite TypeScript application.
+## Demos
 
-## Get started
+- **Gaussian Splat Layer Stairs**: Loads a Gaussian Splat Layer scene and starts from a predefined camera view.
+- **San Francisco Construction Buildings**: Explores SF building data with a year-based animation and emissive styling controls.
+- **Glow Building**: Demonstrates emissive materials, glow, and interactive floor highlighting.
+- **Fire Perimeters**: Visualizes fire perimeter data in a 3D scene.
 
-To quickly scaffold a new application using this template, run the following command in your terminal:
+## Run locally
 
 ```bash
-npx @arcgis/create -t vite
+npm install
+npm run dev
 ```
 
-This template uses the following packages:
-
-- [`@arcgis/core`](https://www.npmjs.com/package/@arcgis/core)
-- [`@arcgis/map-components`](https://www.npmjs.com/package/@arcgis/map-components)
-- [`@arcgis/charts-components`](https://www.npmjs.com/package/@arcgis/charts-components)
-- [`@esri/calcite-components`](https://www.npmjs.com/package/@esri/calcite-components)
-
-## TypeScript
-
-This template is configured to use TypeScript. If you prefer to use JavaScript, you can:
-
-- Remove the `tsconfig.json` file
-- Update the file extensions from `.ts` to `.js`
-- Remove the `typescript` dependency from `package.json`
-
-## Resources
-
-See the [Get started with npm guide](https://developers.arcgis.com/javascript/latest/get-started/#use-arcgiscreate) for full instructions.
-
-## Deploy (GitHub Pages)
-
-This repo includes a GitHub Actions workflow that builds and deploys the app to GitHub Pages.
-
-- In your GitHub repo, go to **Settings → Pages** and set **Source** to **Deploy from a branch**.
-- Select branch **gh-pages** and folder **/(root)**.
-- Push to the `main` branch to trigger a deployment.
+Then open the app and pick a demo from the **Select a demo** dropdown.
