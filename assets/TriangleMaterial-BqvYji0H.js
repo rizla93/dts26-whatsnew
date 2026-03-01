@@ -1,1 +1,0 @@
-import{es as d,et as i,eu as o}from"./ShadowCastClear.glsl-MiS1YCVg.js";class u extends d{intersect(t,s,e,r,a,n){return i(t,e,r,a,void 0,n)}intersectDraped(t,s,e,r){return o(e[0],e[1],t,r)}}export{u as i};
