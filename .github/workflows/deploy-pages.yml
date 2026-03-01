@@ -37,6 +37,7 @@ jobs:
       - name: Build
         env:
           GITHUB_PAGES: "true"
+          NODE_OPTIONS: "--max-old-space-size=6144"
         run: npm run build
 
       - name: Setup Pages
