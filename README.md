@@ -35,5 +35,6 @@ See the [Get started with npm guide](https://developers.arcgis.com/javascript/la
 
 This repo includes a GitHub Actions workflow that builds and deploys the app to GitHub Pages.
 
-- In your GitHub repo, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
+- In your GitHub repo, go to **Settings → Pages** and set **Source** to **Deploy from a branch**.
+- Select branch **gh-pages** and folder **/(root)**.
 - Push to the `main` branch to trigger a deployment.
