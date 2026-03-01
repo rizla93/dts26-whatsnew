@@ -1,0 +1,1 @@
+import{iH as m}from"./ShadowCastClear.glsl-MiS1YCVg.js";import{d as i}from"./queryTopFeatures-BuGz1ed7.js";import s from"./TopFeaturesQuery-B6x29w6R.js";import"./index-B8URimlO.js";async function n(o,r,t){const a=m(o);return(await i(a,s.from(r),{...t})).data.objectIds}export{n as executeForTopIds};

@@ -1,1 +1,0 @@
-import{bw as h,bx as m,by as b,bz as e,bA as u}from"./ShadowCastClear.glsl-BgrBXefy.js";import{L as f}from"./densifyCurvedGeometry-BF_wUkaH.js";function x(t,n,i,o){const{height:r,width:a}=o??p(t),s=Math.min(a/n,r/i)*h();return f(t,{maxDeviation:s})}function p(t){const n=m(b(),t);return{width:u(n),height:e(n)}}export{x as n};

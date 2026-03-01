@@ -1,0 +1,1 @@
+import{aV as l,d_ as s,d$ as o,e0 as c}from"./ShadowCastClear.glsl-MiS1YCVg.js";function d({level:e,class:n,...t},i){const a=r(e);return l(`h${a}`,{...t,"aria-level":String(a),class:s(o.heading,n),role:"heading"},i)}function r(e){return c(Math.ceil(e),1,6)}function f(e,n=1){return r(e+n)}export{d as i,f as l};
